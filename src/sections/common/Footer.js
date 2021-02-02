@@ -75,7 +75,7 @@ const TopContainer = styled.div`
 `
 
 const FooterWrapper = styled.div`
-   display: flex;
+    display: flex;
    flex-direction: column;
    justify-content: space-between;
    @media (min-width: ${breakPoints.md}){
@@ -83,7 +83,7 @@ const FooterWrapper = styled.div`
       margin: 0 auto;
       max-width: 1000px;
       width: 90%;
-   }
+   } 
 `
 
 const BoxTextContentFooter = styled.div`
@@ -98,7 +98,7 @@ const Nav = styled.div`
   @media (min-width: ${breakPoints.md}){
       margin-top: 38px;
       flex-direction: row;
-  }
+  } 
 `
 
 const StyledLink = styled(Link)`
@@ -109,5 +109,5 @@ const StyledLink = styled(Link)`
   }
   @media (min-width: ${breakPoints.md}){
      margin-left: 24px;
-  }
+  } 
 `

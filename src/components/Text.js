@@ -4,6 +4,8 @@ import {breakPoints} from "../app-config";
 import {mixinFontScalableSize} from "../helpers";
 import {motion} from "framer-motion";
 
+
+
 const Text = (props) => {
     if(props.debug){
         console.log("TEXT COMPONENTS LOG",props);

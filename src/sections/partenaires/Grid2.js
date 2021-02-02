@@ -28,7 +28,7 @@ const Grid2 = (props) => {
 
 
     return (
-        <Container
+        <Container 
             ref={contentRef}
             animate={animation}
             initial='initial'
@@ -48,10 +48,7 @@ const Grid2 = (props) => {
                             color={props.theme.blue}
                         >{partner.text}</Text>
 
-                      {/*   <LinkWrapper>
-                            <BgLink/>
-                            <Link data-content={'visiter le site'} className={'partner-link'} href={partner.url}>visiter le site</Link>
-                        </LinkWrapper> */}
+                     
                     </PartnerItem>
                 ))}
             </Wrapper>
@@ -63,35 +60,52 @@ export default withTheme(Grid2)
 
 const Container = styled(motion.div)`
   overflow: hidden;
-  padding: 20px 0 100px;
+  justify-content:center;
+  padding-top:50px;
+  padding-bottom:50px;
   @media (min-width: ${breakPoints.lg}){
-    min-height: 50vh; 
+    min-height: 0vh; 
   }
 `
 
 const Wrapper = styled(motion.div)`
-    position: relative;
-    display: grid;
-    grid-template-columns: 1fr;
-    padding: 20px;
-    @media (min-width: ${breakPoints.md}){
-        margin: 0 auto;
-        max-width: 1000px;
+    display:grid;
+    position:relative;
+
+    @media (max-width: ${breakPoints.sm}){    
         grid-template-columns: 1fr 1fr;
+        
+        max-width: 420px;
+    }
+
+    @media (min-width: ${breakPoints.sm}) and (max-width: ${breakPoints.md}){
+        position: relative;
+        display:grid;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+   
+    @media (min-width: ${breakPoints.md}){
+        display: flex;
+    justify-content:space-between;
+    align-items:center;
+    flex-wrap:wrap;
+        margin: 0 auto;
+        max-width: 1500px;
     }
     @media (min-width: ${breakPoints.lg}){
-        max-width: 1200px;
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+        max-width: 1500px;
+        height:200px;
     }
+
 `
 
 const PartnerItem = styled(motion.div)`
-    max-width: 320px;
+    max-width: 160px;
     
 `
 const WrapperImage = styled(motion.div)`
   height: 100px;
-  width: 200px;
+  width: 205px;
   display: grid;
   overflow: hidden;
 `

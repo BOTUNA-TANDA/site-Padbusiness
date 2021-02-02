@@ -21,7 +21,7 @@ export const theme = {
     orange: '#F78240',
     orange2: '#DC9547',
     blue: '#010253',
-    blue2: '#1E2D44',
+    bleu2: '#1E2D44',
     bleu3: '#1E252C',
     white : '#FFFFFF',
     grey:'#F4F4F4',

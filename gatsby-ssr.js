@@ -1,3 +1,4 @@
+import '../site-Padbusiness/node_modules/npm-font-open-sans/open-sans.css'
 import React from 'react'
 import Layout from './src/components/layout'
 import {ThemeProvider} from "styled-components";
@@ -18,7 +19,7 @@ export const onInitialClientRender = () => {
 
 const wrapPageElement = ({ element, props }) => (
     <Layout {...props}>
-        {element}
+            {element}
     </Layout>
 )
 

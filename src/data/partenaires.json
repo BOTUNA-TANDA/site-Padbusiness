@@ -1,21 +1,29 @@
 {
   "image10": {
     "image": "image10",
-    "size": "100%"
+    "size": "50%",
+    "width": "105.05px",
+    "height": "95px",
+    "left": "185px",
+    "top": "917px"
+
   },
   "image11": {
     "image": "image11",
-    "size": "80%"
+    "size": "90%"
   },
   "image12": {
-    "image": "image12"
+    "image": "image12",
+    "size": "53%"
   },
   "image13": {
-    "image": "image13"
+    "image": "image13",
+    "size": "60%"
   },
   "image14": {
     "image": "image14",
-    "url": "https://www.arabel.fm/"
+    "size": "70%"
+    
   }
 
  
