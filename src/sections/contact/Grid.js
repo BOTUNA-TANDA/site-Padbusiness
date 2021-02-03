@@ -224,6 +224,7 @@ import React, {useEffect, useState} from "react"
 import styled, {withTheme} from "styled-components";
 import circleLogo from "../../images/circleLogo.svg"
 import circleBg from "../../images/circlebg.png"
+import facebook from "../../images/logos/facebook.png";
 import {motion, useAnimation} from "framer-motion";
 import {containerAnim, fadeInUp} from "../../animation";
 import Text, {default as Title} from "../../components/Text";
@@ -251,7 +252,7 @@ const servicesLeft = [
      },
      {
        title: "Nous suivre ",
-       text: " ",
+       text:'  <a target="_blank" href="https://www.facebook.com/adresse_de_votre_page_facebook"> <img src="../../images/logos/facebook.png"></a>',
      },
    ]
    

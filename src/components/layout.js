@@ -20,13 +20,13 @@ const Layout = (props) => {
                 <MenuWrapper displayMenu={displayMenu}>
                     <MenuMobile toggleMenu={toggleMenu} />
                 </MenuWrapper>
-                <MenuLink
+                {/* <MenuLink
                     onClick={() => toggleMenu()}
                     location={props.location.pathname}
                     displayMenu={displayMenu}>
                     {displayMenu && <span>Close</span>}
                     {displayMenu === false && <span>Menu</span>}
-                </MenuLink>
+                </MenuLink> */}
                 <div>{props.children}</div>
                 <Footer/>
             </Container>

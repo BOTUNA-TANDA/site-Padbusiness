@@ -24,7 +24,7 @@ const Menu = (props) => {
                     </Title> 
                 
                 <LinkWrapper>
-                    <StyledLink to={"/a-propos"}>
+                    {/* <StyledLink to={"/a-propos"}>
                         <LinkText className={'menu-link'}
                                   size={0.7} fontWeight={700} sizeMd={0.4} color={props.theme.white} noLink
                         >Vision</LinkText>
@@ -43,7 +43,7 @@ const Menu = (props) => {
                         <LinkText className={'menu-link'}
                                   size={0.7} fontWeight={700} sizeMd={0.4} color={props.theme.white} noLink
                         >Contact</LinkText>
-                    </StyledLink>
+                    </StyledLink> */}
                 </LinkWrapper>
             </ContentWrapper>
         </Container>
@@ -106,7 +106,11 @@ margin-left: 16px;
 const Title = styled(motion.h2)`
    position:relative;
    margin-top: 00px;
-   margin-left: 200px;
+   /* margin-left: 200px; */
+   @media  (max-width:  ${breakPoints.sm}) {
+    
+    margin-left:24px;
+  }
    z-index: 4;
    color: ${props => props.theme.white};
    `

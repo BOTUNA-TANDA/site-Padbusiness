@@ -6,6 +6,7 @@ import OurMission from "../sections/mission/OurMission";
 import OurServices from "../sections/mission/OurServices";
 import Word from "../sections/mission/Word";
 import styled, {withTheme} from "styled-components";
+import About from "../sections/home/About";
 import SEO from "../components/seo";
 
 

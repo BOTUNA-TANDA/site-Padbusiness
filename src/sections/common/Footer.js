@@ -16,11 +16,13 @@ const Footer = (props) => {
                 <TopContainer> <BoxTextContentFooter>
                     <Title
                         color={props.theme.white}
+                        fontWeight={900}
                     >
                         PAD 
                     </Title>
                     <Title
                         color={props.theme.white}
+                        fontWeight={900}
                     >
                        
                         Busines
@@ -28,6 +30,7 @@ const Footer = (props) => {
                     </Title>
                     <Title
                         color={props.theme.white}
+                        fontWeight={900}
                     >
                         Network.
                     </Title>
@@ -35,25 +38,32 @@ const Footer = (props) => {
                 </BoxTextContentFooter>
                 <Nav>
                     <StyledLink to={"/"}>
-                        <LinkText size={0.7} fontWeight={400} sizeMd={0.4} color={'white'}
+                        <LinkText size={0.7} fontWeight={400} sizeMd={0.4} color={'white'} fontWeight={400}
                         >Accueil</LinkText>
                     </StyledLink>
-                    <StyledLink to={"/a-propos"}>
-                        <LinkText size={0.7} fontWeight={400} sizeMd={0.4} color={'white'}
-                        >A propos</LinkText>
+                    {/* <StyledLink to={"/a-propos"}>
+                        <LinkText size={0.7} fontWeight={400} sizeMd={0.4} color={'white'} fontWeight={400}
+                        >Vision</LinkText>
                     </StyledLink>
-                    <StyledLink to={"/partenaires"}>
-                        <LinkText size={0.7} fontWeight={400} sizeMd={0.4} color={'white'}
-                        >Partenaires</LinkText>
+                    <StyledLink to={"/space"}>
+                        <LinkText size={0.7} fontWeight={400} sizeMd={0.4} color={'white'} fontWeight={400}
+                        >Objectifs</LinkText>
                     </StyledLink>
-                    <StyledLink to={"/contact"}>
-                        <LinkText size={0.7} fontWeight={400} sizeMd={0.4} color={'white'}
+                    <StyledLink to={"/event"}>
+                        <LinkText size={0.7} fontWeight={400} sizeMd={0.4} color={'white'} fontWeight={400}
+                        >Activités</LinkText>
+                    </StyledLink>
+                    <StyledLink to={"/grid"}>
+                        <LinkText size={0.7} fontWeight={400} sizeMd={0.4} color={'white'} fontWeight={400}
                         >Contact</LinkText>
-                    </StyledLink>
+                    </StyledLink> */}
                 </Nav>
                 </TopContainer>
+
                
-                <div></div>
+                <div>
+
+                </div>
             </FooterWrapper>
         </Container>
     )
