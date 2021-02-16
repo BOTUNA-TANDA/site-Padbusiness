@@ -324,12 +324,24 @@ const Space = (props) => {
     } */
 
     return (
-        <Container className={'space'}
+        <Container id="objectif" className={'space' }
                    ref={contentRef}
                    animate={animation}
                    initial='initial'
                    variants={containerAnim}
         >
+          <Text 
+                            variants={fadeInUp}
+                            as={'span'}
+                            color={props.theme.bleu3}
+                            lineHeight={'170%'}
+                            fontWeight={100}
+                            size={0.7}
+                            sizeLg={0.4}
+                            sizeXl={0.6}
+                            className={'textRotation1'}>
+                            our objectifs.
+                        </Text>
             <div className="imgWrapper">
                 <motion.img
                     src={aboutBg}

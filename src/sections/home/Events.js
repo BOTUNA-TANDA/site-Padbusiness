@@ -21,7 +21,19 @@ const Events = props => {
   }, [loading, data])
 
   return (
-    <Container>
+    <Container id="NosActivites">
+      <Text 
+                            variants={fadeInUp}
+                            as={'span'}
+                            color={props.theme.white}
+                            lineHeight={'170%'}
+                            fontWeight={100}
+                            size={0.7}
+                            sizeLg={0.4}
+                            sizeXl={0.6}
+                            className={'textRotation1'}>
+                            our activities.
+                        </Text>
       <div className="space-content">
         <EventTitleWrapper className={"events-title-wrapper"}>
           <Title className={"events-title-item main-title "}>

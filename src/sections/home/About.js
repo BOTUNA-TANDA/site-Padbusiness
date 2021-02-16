@@ -226,12 +226,25 @@ const About = (props) => {
   }, [animation, inView])
 
   return (
-      <Container
+      <Container id="vision"
           ref={contentRef}
           animate={animation}
           initial='initial'
           variants={containerAboutAnim}
           className={'about'}>
+ <Text 
+                            variants={fadeInUp}
+                            as={'span'}
+                            color={props.theme.bleu3}
+                            lineHeight={'170%'}
+                            fontWeight={100}
+                            size={0.7}
+                            sizeLg={0.4}
+                            sizeXl={0.6}
+                            className={'textRotation1'}>
+                            our vison.
+                        </Text>
+
         <motion.div
             variants={stagger}
             className={'about-animated-wrapper'}>

@@ -7,6 +7,7 @@ import {motion, useAnimation} from "framer-motion";
 import {useInView} from "react-intersection-observer";
 import {useEffect} from "react";
 import {default as LinkText} from "../../components/Text";
+import scrollTo from 'gatsby-plugin-smoothscroll';
 
 
 
@@ -24,26 +25,13 @@ const Menu = (props) => {
                     </Title> 
                 
                 <LinkWrapper>
-                    {/* <StyledLink to={"/a-propos"}>
-                        <LinkText className={'menu-link'}
-                                  size={0.7} fontWeight={700} sizeMd={0.4} color={props.theme.white} noLink
-                        >Vision</LinkText>
-                    </StyledLink>
-                    <StyledLink to={"/space"}>
-                        <LinkText className={'menu-link'}
-                                  size={0.7} fontWeight={700} sizeMd={0.4} color={props.theme.white} noLink
-                        >Objectifs</LinkText>
-                    </StyledLink>
-                    <StyledLink to={"/event"}>
-                        <LinkText className={'menu-link'}
-                                  size={0.7} fontWeight={700} sizeMd={0.4} color={props.theme.white} noLink
-                        >Activités</LinkText>
-                    </StyledLink>
-                    <StyledLink to={"/grid"}>
-                        <LinkText className={'menu-link'}
-                                  size={0.7} fontWeight={700} sizeMd={0.4} color={props.theme.white} noLink
-                        >Contact</LinkText>
-                    </StyledLink> */}
+
+               
+                <button className={"menuScrollTo "} onClick={() => scrollTo('#vision')}>Vision</button>
+                <button className={"menuScrollTo "} onClick={() => scrollTo('#objectif')}>Objectifs</button>
+                <button className={"menuScrollTo"} onClick={() => scrollTo('#NosActivites')}>Activités</button>
+                <button className={"menuScrollTo"} onClick={() => scrollTo('#contact')}>Contact</button>
+                    
                 </LinkWrapper>
             </ContentWrapper>
         </Container>
@@ -76,7 +64,10 @@ const LinkWrapper = styled(motion.div)`
   display: flex;
   align-self: center;
   justify-self: flex-start;
-  min-width: 400px;
+  min-width: 200px;
+  margin-left:160px;
+  
+  justify-content:space-between;
   @media  (max-width:  ${breakPoints.sm}) {
     display: none;
   }

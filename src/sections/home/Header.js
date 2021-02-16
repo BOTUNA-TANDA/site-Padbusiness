@@ -320,7 +320,18 @@ const Header = (props) => {
         <Container
             className={'hero'}>
             <Menu/>
-            
+            <Text 
+                            variants={fadeInUp}
+                            as={'span'}
+                            color={props.theme.white}
+                            lineHeight={'170%'}
+                            fontWeight={100}
+                            size={0.7}
+                            sizeLg={0.4}
+                            sizeXl={0.6}
+                            className={'textRotation2'}>
+                            pad business network foundation.
+                        </Text>
             <Wrapper
                 ref={contentRef}
                 animate={animation}
@@ -338,7 +349,7 @@ const Header = (props) => {
                                 sizeLg={7}
                                 marginTopLg={80}
                                 sizeXl={9}
-                                marginLeftXl={-50}
+                                marginLeftXl={20}
                                 marginTopXl={64}
                                 fontWeight={800}
                                 lineHeight={"50%"}
