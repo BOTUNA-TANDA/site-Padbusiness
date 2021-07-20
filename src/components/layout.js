@@ -1,6 +1,5 @@
-import React, {useEffect, useState} from "react"
+import React, {useState} from "react"
 import "./layout.css"
-import "./components.css"
 import Footer from "../sections/common/Footer";
 import styled from "styled-components";
 import {motion} from "framer-motion";

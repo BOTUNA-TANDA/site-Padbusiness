@@ -1,8 +1,7 @@
 module.exports = {
     siteMetadata: {
-        title: `Start Création & Co.`,
-        description: `Vous avez une idée de projet ou plusieurs ? Vous voulez donner du sens à votre parcours socio-professionnel ? Vous ne savez pas par où ni avec qui commencer ? Démarrez avec Start Création car nous stimulons vos talents !
-`,
+        title: ``,
+        description: `PAD Business Network est une plateforme pour le renforcement des capacités des africains et ses descendants partout dans le monde.`,
         author: `@greenbetech.com`,
     },
 
@@ -31,10 +30,10 @@ module.exports = {
         {
             resolve: `gatsby-plugin-manifest`,
             options: {
-                name: `Start Création & Co.`,
-                short_name: `Sc & Co`,
+                name: `PAD Business Network`,
+                short_name: `Pad Biz`,
                 start_url: `/`,
-                icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+                icon: `src/images/favicon.png`, // This path is relative to the root of the site.
             },
         },
         // this (optional) plugin enables Progressive Web App + Offline functionality

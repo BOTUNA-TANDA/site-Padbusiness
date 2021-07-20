@@ -1,28 +1,26 @@
 import React from "react"
 import styled, {withTheme} from "styled-components";
 import Header from "../sections/home/Header";
-import About from "../sections/home/About";
-import Activity from "../sections/home/Activity";
-import Space from "../sections/home/Space";
-import Events from "../sections/home/Events";
-import Partners from "../sections/home/Partners";
+import Vision from "../sections/home/Vision";
+import Objectives from "../sections/home/Objectives";
+import Activities from "../sections/home/Activities";
+import ActivitySecondSection from "../sections/home/ActivitiesSecondSection";
 import SEO from "../components/seo";
-import MenuMobile from "../sections/common/MenuMobile";
-import Grid from "../sections/contact/Grid";
-import Grid2 from "../sections/partenaires/Grid2"
+import Contact from "../sections/home/Contact";
+import Logos from "../sections/home/Logos"
 
 
 const IndexPage = () => {
     return (
         <Container>
-            <SEO title="Accueil" />
+            <SEO title="PAD Business Network" />
             <Header/>
-            <Grid2/>
-            <About/>
-            <Space/>
-            <Events/>
-            <Partners/>
-            <Grid/>
+            <Logos/>
+            <Vision/>
+            <Objectives/>
+            <Activities/>
+            <ActivitySecondSection/>
+            <Contact/>
         </Container>
     )
 }
