@@ -5,7 +5,7 @@ import {containerAnim, fadeInUp} from "../../animation";
 import Text, {default as Title} from "../../components/Text";
 import {breakPoints} from "../../app-config";
 import ContactListItem from "../../components/ContactListItem";
-import {contactInfos} from "../../data/ContactInfo";
+import {contactInfos} from "../../data/contactInfo";
 
 
 const Contact = (props) => {
