@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, {useEffect, useState} from "react";
 import styled, {withTheme} from "styled-components";
 import {Link} from "gatsby"
 import {breakPoints} from "../../app-config";
@@ -15,6 +15,19 @@ const MenuMobile = (props) => {
     const [contentRef, inView] = useInView({
         rootMargin: "0px",
     })
+    const [thing, setThing] = useState('fr');
+
+    function handleChange(e) {
+        e.preventDefault();
+        setThing(e.target.value);
+        console.log(e.target.value);
+      }
+    
+      function handleClick(e) {
+        e.preventDefault();
+        changeLanguage(thing);
+      }
+    
 
     const toggleMenuInternal = (id) => {
         props.toggleMenu()
@@ -33,9 +46,9 @@ const MenuMobile = (props) => {
                 <Title
                     color={props.theme.white}
                 >
-                    {t('header.t.sylab')}<br/>
-                    {t('header.t.sylab-second')} <br/>
-                    {t('headr.t.sylab-third')} <br/>
+                    {t('header.t.sylab')}<br />
+                    {t('header.t.sylab-second')} <br />
+                    {t('headr.t.sylab-third')} <br />
                 </Title>
             </HomeLink>
             <ContentWrapper
@@ -46,53 +59,57 @@ const MenuMobile = (props) => {
             >
                 <LinkWrapper variants={fadeInUp2}>
                     <LinkItemWrapper onClick={() => toggleMenuInternal('#vision')}>
-                            <LinkText className={'menu-link'}
-                                      size={0.9} fontWeight={700} sizeMd={0.4} color={'white'} noLink
+                        <LinkText className={'menu-link'}
+                            size={0.9} fontWeight={700} sizeMd={0.4} color={'white'} noLink
                         >{t('Vision')}</LinkText>
                     </LinkItemWrapper>
                     <LinkItemWrapper variants={fadeInUp2} onClick={() => toggleMenuInternal('#objectif')}>
-                            <LinkText className={'menu-link'}
-                                      size={0.9} fontWeight={700} sizeMd={0.4} color={'white'} noLink
+                        <LinkText className={'menu-link'}
+                            size={0.9} fontWeight={700} sizeMd={0.4} color={'white'} noLink
                         >{t('Objectif')}</LinkText>
                     </LinkItemWrapper>
                     <LinkItemWrapper variants={fadeInUp2} onClick={() => toggleMenuInternal('#NosActivites')}>
-                            <LinkText className={'menu-link'}
-                                      size={0.9} fontWeight={700} sizeMd={0.4} color={'white'} noLink
-                            >{t('Activites')}</LinkText>
+                        <LinkText className={'menu-link'}
+                            size={0.9} fontWeight={700} sizeMd={0.4} color={'white'} noLink
+                        >{t('Activites')}</LinkText>
                     </LinkItemWrapper>
                     <LinkItemWrapper variants={fadeInUp2} onClick={() => toggleMenuInternal('#contact')}>
 
-                            <LinkText className={'menu-link'}
-                                      size={0.9} fontWeight={700} sizeMd={0.4} color={'white'} noLink
+                        <LinkText className={'menu-link'}
+                            size={0.9} fontWeight={700} sizeMd={0.4} color={'white'} noLink
                         >{t('Contact')}</LinkText>
                     </LinkItemWrapper>
                     <LinkItemWrapper>
-                    <LinkLang>
+                        <LinkLang>
             
-            {languages.map((lang) => {
-              return (
-                <li
-                  className={lang === props.languages ? "active" : "lang"}
-                  key={lang}
-                  to={originalPath}
-                  language={lang}
-                  onClick={(e) => {
-                    e.preventDefault();
-                    changeLanguage(lang);
-                  }}
-                 
-                >
-                      {lang}
-                  </li>
-              );
-            }
-            )}
-          </LinkLang>
+                            <li>
+                                <label htmlFor='lang_choice'>
+
+                                    <select
+                                        name='lang_choice'
+                                        id="lang_choice"
+                                        to={originalPath}
+                                        onChange={handleChange}
+                                        onClick={handleClick}
+                                        value={thing}
+                                    >
+                                        {languages.map((lang) => {
+                                            return (
+                                                <option
+                                                    key={lang}
+                                                    value={lang}
+                                                >{lang}</option>
+                                            );
+                                        })}
+                                    </select>
+                                </label>
+                            </li>
+                        </LinkLang>
                     </LinkItemWrapper>
                 </LinkWrapper>
             </ContentWrapper>
         </Container>
-    )
+    );
 }
 
 export default withTheme(MenuMobile)
