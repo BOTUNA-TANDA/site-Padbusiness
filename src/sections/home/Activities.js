@@ -5,8 +5,11 @@ import {breakPoints} from "../../app-config";
 import aboutBg from  "../../images/helping.jpg"
 import {motion} from "framer-motion";
 import {fadeInUp} from "../../animation";
+import {useI18next} from 'gatsby-plugin-react-i18next'
 
 const Activities = props => {
+
+  const {t} = useI18next();
     return (
         <Container id="NosActivites">
             <Text
@@ -19,7 +22,7 @@ const Activities = props => {
                 sizeLg={0.4}
                 sizeXl={0.6}
                 className={'textRotation1'}>
-                our activities.
+                {t('activites-rotation')}
             </Text>
             <div className="space-content">
                 <EventTitleWrapper className={"events-title-wrapper"}>
@@ -37,8 +40,8 @@ const Activities = props => {
                             fontWeight={900}
                             className={"events-title"}
                         >
-                            <span className={"events-title-item"}>Nos</span>
-                            <span className={"events-title-item"}>Activités</span>
+                            <span className={"events-title-item"}>{t('activites.t.sylab')}</span>
+                            <span className={"events-title-item"}>{t('activites.t.sylab-second')}</span>
                         </Text>
                     </Title>
 
@@ -50,7 +53,7 @@ const Activities = props => {
                         size={1}
                         className={"space-description main-title text-image"}
                     >
-                        1. L’accompagement
+                        {t('activites.t.1')}
                     </Text>
                     <Text
                         color={props.theme.white}
@@ -60,10 +63,10 @@ const Activities = props => {
                         fontWeight={400}
                         className={" text-image"}
                     >
-                        Nous aidons nos membres à réaliser leurs projets de nature <br/>
-                        entreprenariale, à travers un accompagnement rapproché. Nos <br/>
-                        experts soutiennent la rédaction des projets, le plan <br/>
-                        financier et donnent des conseils juridiques.
+                        {t('activites.p.sylab')} <br/>
+                        {t('activites.p.sylab-second')} <br/>
+                        {t('activites.p.sylab-third')}<br/>
+                        {t('activites.p.sylab-forth')}
                     </Text>
                 </EventTitleWrapper>
                 <SubContainer className={"events text-image"}>
@@ -151,7 +154,7 @@ const ImageWrapper = styled.div`
 const SubContainer = styled.div`
   .img-wrapper {
     overflow: hidden;
-    width: 200px;: 500 %;
+    width: 200px;
   }
 
   @media (min-width: ${breakPoints.md}) {

@@ -10,7 +10,7 @@ import {motion, useAnimation} from "framer-motion";
 import Menu from "../common/Menu";
 import {containerAnim, fadeInUp} from "../../animation";
 import {useInView} from "react-intersection-observer";
-
+import {  useI18next } from 'gatsby-plugin-react-i18next';
 
 const Header = (props) => {
     const animation = useAnimation();
@@ -18,6 +18,9 @@ const Header = (props) => {
         rootMargin: "0px",
     })
 
+    const {t} = useI18next();
+  
+  
     useEffect(() => {
         if (inView) {
             animation.start("animate")
@@ -38,7 +41,7 @@ const Header = (props) => {
                 sizeLg={0.4}
                 sizeXl={0.6}
                 className={'textRotation2'}>
-                pad business network foundation.
+                {t('header.title-rotation')}
             </Text>
             <Wrapper
                 ref={contentRef}
@@ -62,9 +65,9 @@ const Header = (props) => {
                                 fontWeight={800}
                                 lineHeight={"50%"}
                                 className={'hero-left-content-title'}>
-                                <span>PAD</span><br/>
-                                <span>Business</span><br/>
-                                <span>Network</span>
+                                <span>{t('header.t.sylab') }</span><br/>
+                                <span>{ t('header.t.sylab-second')}</span><br/>
+                                <span>{ t('header.t.sylab-third')}</span>
                             </Title>
                         </div>
                         <Text
@@ -85,10 +88,10 @@ const Header = (props) => {
                             marginTopXl={126}
                             marginLeftXl={100}
                             className={'hero-left-content-excerpt'}>
-                            PAD Business Network est une<br/>
-                            plateforme pour le renforcement des<br/>
-                            capacités des africains et ses <br/>
-                            descendants partout dans le monde.
+                              {t('header.p1.sylab')}<br/>
+                              {t('header.p1.sylab-second')}<br/>
+                              {t('header.p1.sylab-third')}<br/>
+                              {t('header.p1.sylab-forth')}
                         </Text>
                     </HeroLeftContent>
                 </HeroLeft>
@@ -135,9 +138,8 @@ const Wrapper = styled(motion.div)`
     margin: 64px auto 0;
     padding: 0 10px;
   }
-
 }
-`
+` 
 
 const HeroLeft = styled(motion.div)`
   position: relative;

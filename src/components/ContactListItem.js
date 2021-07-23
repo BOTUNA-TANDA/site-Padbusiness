@@ -4,6 +4,7 @@ import parse from "html-react-parser";
 import React from "react";
 import styled from "styled-components";
 import {motion} from "framer-motion";
+import { Trans } from 'gatsby-plugin-react-i18next';
 
 export function ContactListItem(props) {
     let info = props.info;
@@ -33,7 +34,8 @@ export function ContactListItem(props) {
                     lineHeightLg={"50px"}
                     fontWeight={800}
                 >
-                    <span className={"space-title-item"}>{props.info.title}</span>
+                    <span className={"space-title-item"}>
+                        <Trans>{props.info.title}</Trans></span>
                 </Text>
             </Title>
             <Text

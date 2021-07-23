@@ -6,14 +6,15 @@ import aboutImage from "../../images/pexels-christina-morillo-2.png"
 import Text from "../../components/Text";
 import {breakPoints} from "../../app-config";
 import {containerAboutAnim, fadeInUp, stagger} from "../../animation";
-
+import { useI18next} from 'gatsby-plugin-react-i18next'
 
 const Vision = (props) => {
     const animation = useAnimation();
     const [contentRef, inView] = useInView({
         rootMargin: "0px",
     })
-
+  const { t } = useI18next();
+  
     useEffect(() => {
         if (inView) {
             animation.start("animate")
@@ -41,7 +42,7 @@ const Vision = (props) => {
                 sizeLg={0.4}
                 sizeXl={0.6}
                 className={'textRotation1'}>
-                OUR VISION.
+                {t('vision-rotation') }
             </Text>
 
             <motion.div
@@ -69,8 +70,8 @@ const Vision = (props) => {
                                 fontWeight={800}
 
                             >
-                                <span className={'about-description-title-item'}>Notre</span>
-                                <span className={'about-description-title-item'}>Vision.</span>
+                            <span className={'about-description-title-item'}>{t('vision.header.sylab') }</span>
+                            <span className={'about-description-title-item'}>{ t('vision.header.sylab-second')}</span>
                             </Text>
                         </Title>
                         <Description variants={fadeInUp}>
@@ -81,28 +82,17 @@ const Vision = (props) => {
                                 fontWeight={100}
                                 marginTopXl={50}
                                 size={0.6}
-                                className={'about-description-excerpt'}> La vision de
-                                <span className={"bold"}> PAD Business Network </span>
-                                se veut avant tout humaniste dans un cadre entrepreneurial
-                                empreint de diversité et respectueux des normes
-                                environnementales. <br/>
+                                className={'about-description-excerpt'}> {t('vision.p1.sylab')} 
+                                   {" "}
+                                <span className={"bold"}>{t('title')}</span>
+                                {" "}
+                                {t('vision.p1.sylab-second')} <br/>
                                 <br/>
-                                Elle s'aligne en partie à celle de
-                                <span className={"bold"}> l'ONU </span>
-                                dans le cadre de la résolution A/RES/68/237
-                                définissant 2015 - 2024, comme la décennie
-                                internationale des personnes{" "}
-                                <span className={"bold"}> d'ascendance </span>
-                                <span className={"bold"}>africaine </span> et citant la
-                                nécessité de
-                                renforcer les mesures et activités de
-                                coopération nationales, régionales et
-                                internationales pour garantir le plein
-                                exercice des droits économiques, sociaux,
-                                culturels, civils et politiques des
-                                personnes d'ascendance africaine ainsi que
-                                leur pleine et égale participation à la
-                                société sous tous les aspects.
+                                {t('vision.p2.sylab')}
+                                <span className={"bold"}> {t('vision.p2.sylab-second')} </span>
+                                {t('vision.p2.sylab-third')} <br/>
+                                 <span className={"bold"}> {t('vision.p2.sylab.forth') } </span>
+                                <span className={"bold"}>{t('vision.p2.sylab.firth')} </span> {t('vision.p2.sylab.sixth')}
                             </Text>
                         </Description>
                     </motion.div>

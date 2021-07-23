@@ -1,23 +1,84 @@
-import React from "react";
+import React, { useState} from "react";
 import styled, {withTheme} from "styled-components";
 import {breakPoints} from "../../app-config";
 import {motion} from "framer-motion";
 import scrollTo from 'gatsby-plugin-smoothscroll';
-
+import { useI18next } from 'gatsby-plugin-react-i18next';
 
 const Menu = (props) => {
+
+  const { languages, changeLanguage, originalPath, t } = useI18next();
+  const [thing, setThing] = useState('fr');
+
+
+  
+
+  function handleChange(e) {
+    e.preventDefault();
+    setThing(e.target.value);
+    console.log(e.target.value);
+  }
+
+  function handleClick(e) {
+    e.preventDefault();
+    changeLanguage(thing);
+  }
+
     return (
         <Container>
             <ContentWrapper>
                 <Title color={props.theme.white}>
-                    PAD Business Network.
+                    {t("title")}
                 </Title>
                 <LinkWrapper>
-                    <button className={"menuScrollTo "} onClick={() => scrollTo('#vision')}>Vision</button>
-                    <button className={"menuScrollTo "} onClick={() => scrollTo('#objectif')}>Objectifs</button>
-                    <button className={"menuScrollTo"} onClick={() => scrollTo('#NosActivites')}>Activités</button>
-                    <button className={"menuScrollTo"} onClick={() => scrollTo('#contact')}>Contact</button>
-                </LinkWrapper>
+                  <button className={"menuScrollTo "} onClick={() => scrollTo('#vision')}> {t('Vision')}</button>
+                  <button className={"menuScrollTo "} onClick={() => scrollTo('#objectif')}>{t('Objectif')}</button>
+                  <button className={"menuScrollTo"} onClick={() => scrollTo('#NosActivites')}>{t('Activites')}</button>
+            <button className={"menuScrollTo"} onClick={() => scrollTo('#contact')}>{t('Contact')}</button>
+            
+          </LinkWrapper>
+          <LinkLang>
+           <li>
+              <label htmlFor='lang_choice'>
+
+                <select
+                  name='lang_choice'
+                  id="lang_choice"
+                  to={originalPath}
+                  onChange={handleChange}
+                  onClick={handleClick}
+                  value={thing}
+                >
+                  {languages.map((lang) => {
+                    return (
+                      <option
+                        key={lang}
+                        value={lang}
+                      >{lang}</option>
+                    );
+                  })}
+           { /*{languages.map((lang) => {
+              return (
+                
+                  className={lang === props.languages ? "active" : "lang"}
+                  key={lang}
+                  to={originalPath}
+                  language={lang}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    changeLanguage(lang);
+                  }}
+                 
+                
+                  {`${lang}/`}
+                
+              );
+            }
+            )}*/}
+                </select>
+            </label>
+          </li>
+          </LinkLang>
             </ContentWrapper>
         </Container>
     )
@@ -36,10 +97,39 @@ const Container = styled(motion.div)`
   }
 `
 
+const LinkLang = styled(motion.ul)`
+  position: absolute;
+  top: 10;
+  left: 280%;
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  @media (max-width: ${breakPoints.sm}) {
+    display: none;
+  }
+  @media(max-width: '1300px') {
+    left: 210%;
+  }
+  @media(max-width: '1250px') {
+    left: 120%;
+    position: absolute;
+  top: 10;
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  }
+  @media(max-width: ${breakPoints.lg}) {
+    left: 180%;
+  }
+  
+  
+  
+`;
+
 const ContentWrapper = styled(motion.div)`
   display: grid;
-  max-width: 700px;
-  grid-template-columns: 1fr 1fr;
+  max-width: 800px;
+  grid-template-columns: 1fr 1fr 1fr;
   @media (min-width: ${breakPoints.md}) {
     padding-left: 70px;
   }

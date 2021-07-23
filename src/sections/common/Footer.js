@@ -3,35 +3,39 @@ import styled, {withTheme} from "styled-components";
 import {default as Title,} from "../../components/Text";
 import {breakPoints} from "../../app-config";
 import scrollTo from 'gatsby-plugin-smoothscroll';
+import { useI18next } from 'gatsby-plugin-react-i18next';
 
 const Footer = (props) => {
-    return (
-        <Container className={'footer'}>
-            <FooterWrapper>
-                <TopContainer>
-                    <BoxTextContentFooter>
-                        <Title
-                            color={props.theme.white}
-                            fontWeight={900}
-                            stacked
-                        >
-                            <span>PAD</span>
-                            <span>Busines</span>
-                            <span>Network.</span>
-                        </Title>
-                    </BoxTextContentFooter>
-                    <Nav>
-                        <button className={"menuScrollTo "} onClick={() => scrollTo('#vision')}>Vision</button>
-                        <button className={"menuScrollTo "} onClick={() => scrollTo('#objectif')}>Objectifs</button>
-                        <button className={"menuScrollTo"} onClick={() => scrollTo('#NosActivites')}>Activités</button>
-                        <button className={"menuScrollTo"} onClick={() => scrollTo('#contact')}>Contact</button>
-                    </Nav>
-                </TopContainer>
-            </FooterWrapper>
-            <BottomContainer/>
-            <SousFooter/>
-        </Container>
-    )
+
+  const { t } = useI18next();
+
+  return (
+    <Container className={'footer'}>
+      <FooterWrapper>
+        <TopContainer>
+          <BoxTextContentFooter>
+            <Title
+              color={props.theme.white}
+              fontWeight={900}
+              stacked
+            >
+              <span>{t('header.t.sylab')}</span>
+              <span>{t('header.t.sylab-second')}</span>
+              <span>{t('header.t.sylab-third')}</span>
+            </Title>
+          </BoxTextContentFooter>
+          <Nav>
+            <button className={"menuScrollTo "} onClick={() => scrollTo('#vision')}>{t('Vision')}</button>
+            <button className={"menuScrollTo "} onClick={() => scrollTo('#objectif')}>{t('objectif')}</button>
+            <button className={"menuScrollTo"} onClick={() => scrollTo('#NosActivites')}>{t('Activites')}</button>
+            <button className={"menuScrollTo"} onClick={() => scrollTo('#contact')}>{t('Contact')}</button>
+          </Nav>
+        </TopContainer>
+      </FooterWrapper>
+      <BottomContainer />
+      <SousFooter />
+    </Container>
+  );
 }
 
 export default withTheme(Footer)

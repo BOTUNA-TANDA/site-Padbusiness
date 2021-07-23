@@ -7,11 +7,11 @@ import {default as LinkText} from "../../components/Text";
 import {containerAnim, fadeInUp2} from "../../animation";
 import {useInView} from "react-intersection-observer";
 import scrollTo from 'gatsby-plugin-smoothscroll';
-
+import { useI18next } from 'gatsby-plugin-react-i18next';
 
 const MenuMobile = (props) => {
     const animation = useAnimation();
-
+    const { languages, changeLanguage, originalPath, t } = useI18next();
     const [contentRef, inView] = useInView({
         rootMargin: "0px",
     })
@@ -33,9 +33,9 @@ const MenuMobile = (props) => {
                 <Title
                     color={props.theme.white}
                 >
-                    PAD <br/>
-                    Business <br/>
-                    Network. <br/>
+                    {t('header.t.sylab')}<br/>
+                    {t('header.t.sylab-second')} <br/>
+                    {t('headr.t.sylab-third')} <br/>
                 </Title>
             </HomeLink>
             <ContentWrapper
@@ -48,23 +48,46 @@ const MenuMobile = (props) => {
                     <LinkItemWrapper onClick={() => toggleMenuInternal('#vision')}>
                             <LinkText className={'menu-link'}
                                       size={0.9} fontWeight={700} sizeMd={0.4} color={'white'} noLink
-                            >Vision</LinkText>
+                        >{t('Vision')}</LinkText>
                     </LinkItemWrapper>
                     <LinkItemWrapper variants={fadeInUp2} onClick={() => toggleMenuInternal('#objectif')}>
                             <LinkText className={'menu-link'}
                                       size={0.9} fontWeight={700} sizeMd={0.4} color={'white'} noLink
-                            >Objectifs</LinkText>
+                        >{t('Objectif')}</LinkText>
                     </LinkItemWrapper>
                     <LinkItemWrapper variants={fadeInUp2} onClick={() => toggleMenuInternal('#NosActivites')}>
                             <LinkText className={'menu-link'}
                                       size={0.9} fontWeight={700} sizeMd={0.4} color={'white'} noLink
-                            >Activités</LinkText>
+                            >{t('Activites')}</LinkText>
                     </LinkItemWrapper>
                     <LinkItemWrapper variants={fadeInUp2} onClick={() => toggleMenuInternal('#contact')}>
 
                             <LinkText className={'menu-link'}
                                       size={0.9} fontWeight={700} sizeMd={0.4} color={'white'} noLink
-                            >Contact</LinkText>
+                        >{t('Contact')}</LinkText>
+                    </LinkItemWrapper>
+                    <LinkItemWrapper>
+                    <LinkLang>
+            
+            {languages.map((lang) => {
+              return (
+                <li
+                  className={lang === props.languages ? "active" : "lang"}
+                  key={lang}
+                  to={originalPath}
+                  language={lang}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    changeLanguage(lang);
+                  }}
+                 
+                >
+                      {lang}
+                  </li>
+              );
+            }
+            )}
+          </LinkLang>
                     </LinkItemWrapper>
                 </LinkWrapper>
             </ContentWrapper>
@@ -82,7 +105,13 @@ const Container = styled(motion.div)`
   z-index: 10;
   align-content: center;
   padding: 50px;
-`
+`;
+
+const LinkLang = styled(motion.ul)`
+    display: inherit;
+    flex-direction: column;
+    margin-left: 20px;
+`;
 
 const ContentWrapper = styled(motion.div)`
   display: grid;

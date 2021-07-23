@@ -5,11 +5,15 @@ import {motion, useAnimation} from "framer-motion";
 import {breakPoints} from "../../app-config";
 import {useInView} from "react-intersection-observer";
 import {containerAnim, fadeInUp} from "../../animation";
+import { useI18next } from 'gatsby-plugin-react-i18next';
+
+
 
 const objectivesList = [
+  
     {
         title: "1. Le Coaching",
-        text:
+        text: 
             "PAD Biz s'est fixé comme objectif de développer le capital humain afin d'accéder à l'éducation, qui est un droit fondamental et permet de renforcer le développement.",
     },
     {
@@ -61,6 +65,8 @@ const Objectives = (props) => {
         rootMargin: "-100px",
     })
 
+    const { t } = useI18next();
+  
     useEffect(() => {
         if (inView) {
             animation.start("animate")
@@ -85,7 +91,7 @@ const Objectives = (props) => {
                 sizeLg={0.4}
                 sizeXl={0.6}
                 className={'textRotation1'}>
-                our objectifs.
+               {t('objectif-rotation')}
             </Text>
             <div className="imgWrapper">
                 {/*<motion.img*/}
@@ -108,8 +114,8 @@ const Objectives = (props) => {
                         fontWeight={900}
 
                     >
-                        <span className={"space-title-item "}>Nos</span><br/>
-                        <span className={"space-title-item "}>Objectifs.</span>
+                        <span className={"space-title-item "}>{t('objectif-title.sylab')}</span><br/>
+                        <span className={"space-title-item "}>{t('objectif-title')}</span>
                     </Text>
                 </Title>
 
@@ -124,9 +130,9 @@ const Objectives = (props) => {
                         marginTopXl={50}
                         className={'space-description main-title'}>
 
-                        Principalement Le Renforcement Des Capacités
+                        {t('objectif.t2.sylab')}
                         <br/>
-                        Économiques Des Personnes Afro-Descendantes.
+                        {t('objectif.t2.sylab-second')}
 
                     </Text>
                     <Text
@@ -136,9 +142,9 @@ const Objectives = (props) => {
                         marginBottomLg={80}
                         fontWeight={400}
                     >
-                        Nous atteignons nos objectifs par le biais du Coaching,
+                        {t('objectif.t3.sylab')}
                         <br/>
-                        Le networking et Le financement.
+                        {t('objectif.t3.sylab-second')}
 
                     </Text>
 

@@ -7,7 +7,8 @@ import Activities from "../sections/home/Activities";
 import ActivitySecondSection from "../sections/home/ActivitiesSecondSection";
 import SEO from "../components/seo";
 import Contact from "../sections/home/Contact";
-import Logos from "../sections/home/Logos"
+import Logos from "../sections/home/Logos";
+import { graphql } from 'gatsby';
 
 
 const IndexPage = () => {
@@ -29,5 +30,16 @@ const Container = styled.div`
 `
 export default withTheme(IndexPage)
 
-
-
+export const query = graphql`
+ query($language: String!) {
+     locales: allLocale(filter: {language: {eq: $language}}) {
+         edges {
+             node {
+                 ns
+                data
+                language
+             }
+         }
+     }
+ }
+`;

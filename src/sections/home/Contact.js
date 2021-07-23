@@ -6,9 +6,12 @@ import Text, {default as Title} from "../../components/Text";
 import {breakPoints} from "../../app-config";
 import ContactListItem from "../../components/ContactListItem";
 import {contactInfos} from "../../data/contactInfo";
-
+import { useI18next } from 'gatsby-plugin-react-i18next';
 
 const Contact = (props) => {
+
+  const { t } = useI18next();
+
     return (
         <Container id="contact"
                    animate='animate'
@@ -25,7 +28,7 @@ const Contact = (props) => {
                 sizeLg={0.4}
                 sizeXl={0.6}
                 className={'textRotation1'}>
-                Contact Us.
+               {t('contact-rotation')}
             </Text>
             <Wrapper>
                 <Left>
@@ -43,8 +46,8 @@ const Contact = (props) => {
                                 sizeMd={3.5}
                                 lineHeight={0.9}
                                 textTransform={'capitalize'}>
-                                <span>Contactez</span>
-                                <span>Nous</span>
+                                <span>{t('contact.t.sylab')}</span>
+                                <span>{t('contact.t.sylab-second')}</span>
                             </Title>
                         </TitleWrapper>
                         <Text
@@ -56,9 +59,9 @@ const Contact = (props) => {
                             fontWeight={400}
                             maxWidthSm={'500px'}
                             color={props.theme.blue3}>
-                            Avec la collaboration de <br/>
-                            Cité des Métiers / UNIDO <br/>
-                            ENPAD / CHANGE asbl <br/>
+                            {t('contact.p.sylab')} <br/>
+                            {t('contact.p.sylab-second')} <br/>
+                            {t('contact.p.sylab-third')} <br/>
                         </Text>
                     </LeftTextWrapper>
                 </Left>

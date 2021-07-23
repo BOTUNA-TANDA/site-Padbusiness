@@ -159,3 +159,27 @@ table {
 .social-networks a:visited {
     opacity: 0.8;
 }
+
+@media (max-width: 600px) {
+    .textRotation1{
+        margin-left: 10px;  
+    }
+    .events-title-item{
+        margin-left: 10px;
+    }
+}
+.lang{
+    cursor: pointer;
+    display: flex;
+    color: white;
+}
+.active{
+    color: white;
+}
+select{
+    background-color: transparent;
+    border: none;
+    color: white;
+    padding: 5px;
+    
+}
