@@ -5,9 +5,9 @@ import {motion, useAnimation} from "framer-motion";
 import {breakPoints} from "../../app-config";
 import {useInView} from "react-intersection-observer";
 import {containerAnim, fadeInUp} from "../../animation";
-import activitiesList from "../../data/activitiesList";
+//import activitiesList from "../../data/activitiesList";
 import ActivityItem from "../../components/AcitvityItem";
-
+import { useI18next } from 'gatsby-plugin-react-i18next';
 
 const ActivitiesSecondSection = (props) => {
     const animation = useAnimation();
@@ -15,6 +15,8 @@ const ActivitiesSecondSection = (props) => {
         rootMargin: "-100px",
     })
 
+    const {t} = useI18next();
+  
     useEffect(() => {
         if (inView) {
             animation.start("animate")
@@ -22,35 +24,35 @@ const ActivitiesSecondSection = (props) => {
     }, [animation, inView])
 
 
-    return (
-        <Container className={'space'}
-                   ref={contentRef}
-                   animate={animation}
-                   initial='initial'
-                   variants={containerAnim}>
-            <div className="space-content">
-                <ContentContainer className="space-content-column">
-                    <Text
-                        variants={fadeInUp}
-                        as={'p'}
-                        color={props.theme.blue}
-                        fontWeight={700}
-                        size={1}
-                        marginBottomLg={72}
-                        className={'space-description main-title'}>
-                        2. La sensibilisation et<br/>La formation.
-                    </Text>
-                    <div className="space-content-right">
-                        <ServiceList>
-                            {activitiesList.map((activity, index) => (
-                                <ActivityItem key={index} activity={activity} theme={props.theme}/>
-                            ))}
-                        </ServiceList>
-                    </div>
-                </ContentContainer>
-            </div>
-        </Container>
-    )
+  return (
+    <Container className={'space'}
+      ref={contentRef}
+      animate={animation}
+      initial='initial'
+      variants={containerAnim}>
+      <div className="space-content">
+        <ContentContainer className="space-content-column">
+          <Text
+            variants={fadeInUp}
+            as={'p'}
+            color={props.theme.blue}
+            fontWeight={700}
+            size={1}
+            marginBottomLg={72}
+            className={'space-description main-title'}>
+            {t('activites-section.t')}<br />{t('activites-section.t.sylab')}
+          </Text>
+          <div className="space-content-right">
+            <ServiceList>
+                            
+              <ActivityItem theme={props.theme} />
+                           
+            </ServiceList>
+          </div>
+        </ContentContainer>
+      </div>
+    </Container>
+  );
 }
 
 export default withTheme(ActivitiesSecondSection)

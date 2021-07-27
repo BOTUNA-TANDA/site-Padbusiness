@@ -26,7 +26,7 @@ const Footer = (props) => {
           </BoxTextContentFooter>
           <Nav>
             <button className={"menuScrollTo "} onClick={() => scrollTo('#vision')}>{t('Vision')}</button>
-            <button className={"menuScrollTo "} onClick={() => scrollTo('#objectif')}>{t('objectif')}</button>
+            <button className={"menuScrollTo "} onClick={() => scrollTo('#objectif')}>{t('Objectif')}</button>
             <button className={"menuScrollTo"} onClick={() => scrollTo('#NosActivites')}>{t('Activites')}</button>
             <button className={"menuScrollTo"} onClick={() => scrollTo('#contact')}>{t('Contact')}</button>
           </Nav>

@@ -1,36 +1,41 @@
 import React, {useState} from "react"
 import "./layout.css"
-import Footer from "../sections/common/Footer";
+//import Footer from "../sections/common/Footer";
 import styled from "styled-components";
 import {motion} from "framer-motion";
 import {breakPoints} from "../app-config";
 import MenuMobile from "../sections/common/MenuMobile";
 
+
 const Layout = (props) => {
     const [displayMenu, setDisplayMenu] = useState(false)
-
+    
     const toggleMenu = () => {
         setDisplayMenu(!displayMenu)
     }
 
-    return (
-        <>
-            <Container>
-                <MenuWrapper displayMenu={displayMenu}>
-                    <MenuMobile toggleMenu={toggleMenu} />
-                </MenuWrapper>
-                <MenuLink
-                    onClick={() => toggleMenu()}
-                    location={props.location.pathname}
-                    displayMenu={displayMenu}>
-                    {displayMenu && <span>Close</span>}
-                    {displayMenu === false && <span>Menu</span>}
-                </MenuLink>
-                <div>{props.children}</div>
-                <Footer/>
-            </Container>
-        </>
-    )
+    
+
+  return (
+    <>
+            
+      <Container>
+        <MenuWrapper displayMenu={displayMenu}>
+          <MenuMobile toggleMenu={toggleMenu} />
+        </MenuWrapper>
+        <MenuLink
+          onClick={() => toggleMenu()}
+          location={props.location.pathname}
+          displayMenu={displayMenu}>
+          {displayMenu && <span>Close</span>}
+          {displayMenu === false && <span>Menu</span>}
+        </MenuLink>
+        <div>{props.children}</div>
+                  
+      </Container>
+            
+    </>
+  );
 }
 
 const MenuLink = styled(motion.button)`
@@ -49,18 +54,19 @@ const MenuLink = styled(motion.button)`
   &:hover{
     cursor: pointer;
   }
-`
+`;
 
 const MenuWrapper = styled(motion.div)`
     display: ${props => props.displayMenu ? 'grid' : 'none'};
      @media  (min-width:  ${breakPoints.sm}) {
       display: none;
     }
-`
+`;
 
 const Container = styled(motion.div)`
   overflow: hidden;
-`
+`;
 
 
-export default Layout
+export default Layout;
+

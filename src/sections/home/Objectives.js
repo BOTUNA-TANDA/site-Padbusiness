@@ -29,34 +29,96 @@ const objectivesList = [
 ]
 
 function ObjectivesItem(props) {
-    return (
-        <div className="div-col">
-            <Title className={"space-title main-title"}>
-                <Text
-                    marginBottom={16}
-                    variants={fadeInUp}
-                    color={props.theme.orange2}
-                    size={"68px"}
-                    sizeLg={1}
-                    mawLg={"50px"}
-                    lineHeight={"150%"}
-                    lineHeightLg={"50px"}
-                    fontWeight={800}
-                >
-                    <span className={"space-title-item"}>{props.service.title}</span>
-                </Text>
-            </Title>
-            <Text
-                marginBottom={40}
-                as={"span"}
-                color={"bleu3"}
-                maxWidthLg={300}
-                fontWeight={400}
-            >
-                {props.service.text}
-            </Text>
-        </div>
-    )
+
+  const { t } = useI18next();
+  
+  return (
+    <>
+      <div className="div-col">
+        <Title className={"space-title main-title"}>
+          <Text
+            marginBottom={16}
+            variants={fadeInUp}
+            color={props.theme.orange2}
+            size={"68px"}
+            sizeLg={1}
+            mawLg={"50px"}
+            lineHeight={"150%"}
+            lineHeightLg={"50px"}
+            fontWeight={800}
+          >
+            <span className={"space-title-item"}>{t('objectif-coaching.t')}</span>
+          </Text>
+        </Title>
+        <Text
+          marginBottom={40}
+          as={"span"}
+          color={"bleu3"}
+          maxWidthLg={300}
+          fontWeight={400}
+        >
+          <p>{t('objectif-coaching.p')}</p>
+        </Text>
+      </div>
+
+      <div className="div-col">
+        <Title className={"space-title main-title"}>
+          <Text
+            marginBottom={16}
+            variants={fadeInUp}
+            color={props.theme.orange2}
+            size={"68px"}
+            sizeLg={1}
+            mawLg={"50px"}
+            lineHeight={"150%"}
+            lineHeightLg={"50px"}
+            fontWeight={800}
+          >
+            <span className={"space-title-item"}>{t('objectif-networking.t')}</span>
+          </Text>
+        </Title>
+        
+        <Text
+          marginBottom={40}
+          as={"span"}
+          color={"bleu3"}
+          maxWidthLg={300}
+          fontWeight={400}
+        >
+          <p>{t('objectif-networking.p')}</p>
+        </Text>
+      </div>
+
+    
+      <div className="div-col">
+        <Title className={"space-title main-title"}>
+          <Text
+            marginBottom={16}
+            variants={fadeInUp}
+            color={props.theme.orange2}
+            size={"68px"}
+            sizeLg={1}
+            mawLg={"50px"}
+            lineHeight={"150%"}
+            lineHeightLg={"50px"}
+            fontWeight={800}
+          >
+            <span className={"space-title-item"}>{t('objectif-financement.t')}</span>
+          </Text>
+        </Title>
+        
+        <Text
+          marginBottom={40}
+          as={"span"}
+          color={"bleu3"}
+          maxWidthLg={300}
+          fontWeight={400}
+        >
+          {t('objectif-financement.p')}
+        </Text>
+      </div>
+    </>
+  );
 }
 
 const Objectives = (props) => {
@@ -74,93 +136,89 @@ const Objectives = (props) => {
     }, [animation, inView])
 
 
-    return (
-        <Container id="objectif" className={'space'}
-                   ref={contentRef}
-                   animate={animation}
-                   initial='initial'
-                   variants={containerAnim}
-        >
-            <Text
-                variants={fadeInUp}
-                as={'span'}
-                color={props.theme.bleu3}
-                lineHeight={'170%'}
-                fontWeight={100}
-                size={0.7}
-                sizeLg={0.4}
-                sizeXl={0.6}
-                className={'textRotation1'}>
-               {t('objectif-rotation')}
-            </Text>
-            <div className="imgWrapper">
-                {/*<motion.img*/}
-                {/*    src={aboutBg}*/}
-                {/*    alt="space background decoration"*/}
-                {/*    className="about-decoration-bg"/>*/}
-            </div>
-            <div className="space-content">
-                <Title className={'space-title main-title'}>
-                    <Text
+  return (
+    <Container id="objectif" className={'space'}
+      ref={contentRef}
+      animate={animation}
+      initial='initial'
+      variants={containerAnim}
+    >
+      <Text
+        variants={fadeInUp}
+        as={'span'}
+        color={props.theme.bleu3}
+        lineHeight={'170%'}
+        fontWeight={100}
+        size={0.7}
+        sizeLg={0.4}
+        sizeXl={0.6}
+        className={'textRotation1'}>
+        {t('objectif-rotation')}
+      </Text>
+      <div className="imgWrapper">
+        {/*<motion.img*/}
+        {/*    src={aboutBg}*/}
+        {/*    alt="space background decoration"*/}
+        {/*    className="about-decoration-bg"/>*/}
+      </div>
+      <div className="space-content">
+        <Title className={'space-title main-title'}>
+          <Text
 
-                        marginBottom={32}
-                        variants={fadeInUp}
-                        color={props.theme.orange2}
-                        size={2}
-                        sizeLg={6}
-                        mawLg={"50px"}
-                        lineHeight={0.5}
+            marginBottom={32}
+            variants={fadeInUp}
+            color={props.theme.orange2}
+            size={2}
+            sizeLg={6}
+            mawLg={"50px"}
+            lineHeight={0.5}
 
-                        fontWeight={900}
+            fontWeight={900}
 
-                    >
-                        <span className={"space-title-item "}>{t('objectif-title.sylab')}</span><br/>
-                        <span className={"space-title-item "}>{t('objectif-title')}</span>
-                    </Text>
-                </Title>
+          >
+            <span className={"space-title-item "}>{t('objectif-title.sylab')}</span><br />
+            <span className={"space-title-item "}>{t('objectif-title')}</span>
+          </Text>
+        </Title>
 
-                <ContentContainer className="space-content-column">
+        <ContentContainer className="space-content-column">
 
-                    <Text
-                        variants={fadeInUp}
-                        as={'p'}
-                        color={props.theme.blue3}
-                        fontWeight={700}
-                        size={1}
-                        marginTopXl={50}
-                        className={'space-description main-title'}>
+          <Text
+            variants={fadeInUp}
+            as={'p'}
+            color={props.theme.blue3}
+            fontWeight={700}
+            size={1}
+            marginTopXl={50}
+            className={'space-description main-title'}>
 
-                        {t('objectif.t2.sylab')}
-                        <br/>
-                        {t('objectif.t2.sylab-second')}
+            {t('objectif.t2.sylab')}
+            <br />
+            {t('objectif.t2.sylab-second')}
 
-                    </Text>
-                    <Text
+          </Text>
+          <Text
 
-                        marginTop={"8"}
-                        marginBottom={"24"}
-                        marginBottomLg={80}
-                        fontWeight={400}
-                    >
-                        {t('objectif.t3.sylab')}
-                        <br/>
-                        {t('objectif.t3.sylab-second')}
+            marginTop={"8"}
+            marginBottom={"24"}
+            marginBottomLg={80}
+            fontWeight={400}
+          >
+            {t('objectif.t3.sylab')}
+            <br />
+            {t('objectif.t3.sylab-second')}
 
-                    </Text>
+          </Text>
 
-                    <div className="space-content-right">
-                        <ObjectivesList>
-                            {objectivesList.map((object,index) => {
-                                return (
-                                    <ObjectivesItem key={object.title + index} service={object} theme={props.theme}/>
-                                )
-                            })}
-                        </ObjectivesList>
-                    </div>
-                </ContentContainer>
-            </div>
-        </Container>
-    )
+          <div className="space-content-right">
+            <ObjectivesList>
+              <ObjectivesItem theme={props.theme} />
+            </ObjectivesList>
+          </div>
+        </ContentContainer>
+      </div>
+    </Container>
+  );
 }
 
 export default withTheme(Objectives)
@@ -234,8 +292,8 @@ const ContentContainer = styled(motion.div)`
 `
 //-------------------------------------------
 const ObjectivesList = styled(motion.div)`
-  display: grid;
-  grid-template-columns: 1fr;
+  display: flex;
+  grid-template-columns: 1fr 1fr 1fr;
   margin-top: 40px;
   column-gap: 53px;
 
@@ -255,6 +313,6 @@ const ObjectivesList = styled(motion.div)`
   @media (min-width: ${breakPoints.lg}) {
     transform: translateY(-80px);
     grid-template-columns: 1fr 1fr 1fr;
-
+    grid-template-rows: 1fr 1fr;
   }
 `

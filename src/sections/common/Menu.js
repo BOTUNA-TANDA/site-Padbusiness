@@ -1,4 +1,4 @@
-import React, { useState} from "react";
+import React from "react";
 import styled, {withTheme} from "styled-components";
 import {breakPoints} from "../../app-config";
 import {motion} from "framer-motion";
@@ -8,12 +8,12 @@ import { useI18next } from 'gatsby-plugin-react-i18next';
 const Menu = (props) => {
 
   const { languages, changeLanguage, originalPath, t } = useI18next();
-  const [thing, setThing] = useState('fr');
+  //const [thing, setThing] = useState('fr');
 
 
   
 
-  function handleChange(e) {
+ /* function handleChange(e) {
     e.preventDefault();
     setThing(e.target.value);
     console.log(e.target.value);
@@ -23,7 +23,7 @@ const Menu = (props) => {
     e.preventDefault();
     changeLanguage(thing);
   }
-
+*/
     return (
         <Container>
             <ContentWrapper>
@@ -38,8 +38,8 @@ const Menu = (props) => {
             
           </LinkWrapper>
           <LinkLang>
-           <li>
-              <label htmlFor='lang_choice'>
+           
+           { /*  <label htmlFor='lang_choice'>
 
                 <select
                   name='lang_choice'
@@ -56,10 +56,10 @@ const Menu = (props) => {
                         value={lang}
                       >{lang}</option>
                     );
-                  })}
-           { /*{languages.map((lang) => {
+                  })}*/}
+           {languages.map((lang) => {
               return (
-                
+                <a
                   className={lang === props.languages ? "active" : "lang"}
                   key={lang}
                   to={originalPath}
@@ -68,16 +68,17 @@ const Menu = (props) => {
                     e.preventDefault();
                     changeLanguage(lang);
                   }}
-                 
-                
-                  {`${lang}/`}
-                
+                >
+                  {`${
+                    lang === 'fr' ? t('lang-fr') :
+                    lang === 'en' ? t('lang-en') :
+                    lang === 'nl' ? t('lang-nl'):null
+                }|`}
+                </a>
               );
             }
-            )}*/}
-                </select>
-            </label>
-          </li>
+            )}
+          
           </LinkLang>
             </ContentWrapper>
         </Container>
@@ -97,7 +98,7 @@ const Container = styled(motion.div)`
   }
 `
 
-const LinkLang = styled(motion.ul)`
+const LinkLang = styled(motion.div)`
   position: absolute;
   top: 10;
   left: 280%;

@@ -9,37 +9,38 @@ import SEO from "../components/seo";
 import Contact from "../sections/home/Contact";
 import Logos from "../sections/home/Logos";
 import { graphql } from 'gatsby';
-
+import Footer from "../sections/common/Footer";
 
 const IndexPage = () => {
-    return (
-        <Container>
-            <SEO title="PAD Business Network" />
-            <Header/>
-            <Logos/>
-            <Vision/>
-            <Objectives/>
-            <Activities/>
-            <ActivitySecondSection/>
-            <Contact/>
-        </Container>
-    )
+  return (
+    <Container>
+      <SEO title="PAD Business Network" />
+      <Header />
+      <Logos />
+      <Vision />
+      <Objectives />
+      <Activities />
+      <ActivitySecondSection />
+      <Contact />
+      <Footer />
+    </Container>
+  );
 }
 const Container = styled.div`
   overflow: hidden;
 `
-export default withTheme(IndexPage)
+export default withTheme(IndexPage);
 
 export const query = graphql`
- query($language: String!) {
-     locales: allLocale(filter: {language: {eq: $language}}) {
-         edges {
-             node {
-                 ns
-                data
-                language
-             }
-         }
-     }
- }
+  query($language: String!) {
+    locales: allLocale(filter: {language: {eq: $language}}) {
+      edges {
+        node {
+          ns
+          data
+          language
+        }
+      }
+    }
+  }
 `;

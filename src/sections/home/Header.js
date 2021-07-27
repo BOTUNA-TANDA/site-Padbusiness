@@ -139,7 +139,7 @@ const Wrapper = styled(motion.div)`
     padding: 0 10px;
   }
 }
-` 
+` ;
 
 const HeroLeft = styled(motion.div)`
   position: relative;

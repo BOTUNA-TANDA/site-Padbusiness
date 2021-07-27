@@ -5,84 +5,80 @@ import {containerAnim, fadeInUp} from "../../animation";
 import Text, {default as Title} from "../../components/Text";
 import {breakPoints} from "../../app-config";
 import ContactListItem from "../../components/ContactListItem";
-import {contactInfos} from "../../data/contactInfo";
+//import {contactInfos} from "../../data/contactInfo";
 import { useI18next } from 'gatsby-plugin-react-i18next';
 
 const Contact = (props) => {
 
   const { t } = useI18next();
 
-    return (
-        <Container id="contact"
-                   animate='animate'
-                   initial='initial'
-                   variants={containerAnim}
-        >
-            <Text
+  return (
+    <Container id="contact"
+      animate='animate'
+      initial='initial'
+      variants={containerAnim}
+    >
+      <Text
+        variants={fadeInUp}
+        as={'span'}
+        color={props.theme.bleu3}
+        lineHeight={'170%'}
+        fontWeight={100}
+        size={0.7}
+        sizeLg={0.4}
+        sizeXl={0.6}
+        className={'textRotation1'}>
+        {t('contact-rotation')}
+      </Text>
+      <Wrapper>
+        <Left>
+          <LeftTextWrapper>
+            <TitleWrapper>
+              <Title
+                className={'space-description main-title'}
                 variants={fadeInUp}
-                as={'span'}
-                color={props.theme.bleu3}
-                lineHeight={'170%'}
-                fontWeight={100}
-                size={0.7}
-                sizeLg={0.4}
-                sizeXl={0.6}
-                className={'textRotation1'}>
-               {t('contact-rotation')}
+                stacked
+                marginTopMd={-350}
+                color={props.theme.orange2}
+                fontWeight={800}
+                size={2.5}
+                zIndex={5}
+                sizeMd={3.5}
+                lineHeight={0.9}
+                textTransform={'capitalize'}>
+                <span>{t('contact.t.sylab')}</span>
+                <span>{t('contact.t.sylab-second')}</span>
+              </Title>
+            </TitleWrapper>
+            <Text
+              variants={fadeInUp}
+              marginTop={32}
+              marginTopSm={40}
+              size={0.7}
+              sizeMd={0.5}
+              fontWeight={400}
+              maxWidthSm={'500px'}
+              color={props.theme.blue3}>
+              {t('contact.p.sylab')} <br />
+              {t('contact.p.sylab-second')} <br />
+              {t('contact.p.sylab-third')} <br />
             </Text>
-            <Wrapper>
-                <Left>
-                    <LeftTextWrapper>
-                        <TitleWrapper>
-                            <Title
-                                className={'space-description main-title'}
-                                variants={fadeInUp}
-                                stacked
-                                marginTopMd={-350}
-                                color={props.theme.orange2}
-                                fontWeight={800}
-                                size={2.5}
-                                zIndex={5}
-                                sizeMd={3.5}
-                                lineHeight={0.9}
-                                textTransform={'capitalize'}>
-                                <span>{t('contact.t.sylab')}</span>
-                                <span>{t('contact.t.sylab-second')}</span>
-                            </Title>
-                        </TitleWrapper>
-                        <Text
-                            variants={fadeInUp}
-                            marginTop={32}
-                            marginTopSm={40}
-                            size={0.7}
-                            sizeMd={0.5}
-                            fontWeight={400}
-                            maxWidthSm={'500px'}
-                            color={props.theme.blue3}>
-                            {t('contact.p.sylab')} <br/>
-                            {t('contact.p.sylab-second')} <br/>
-                            {t('contact.p.sylab-third')} <br/>
-                        </Text>
-                    </LeftTextWrapper>
-                </Left>
-                <Right>
-                    <RightTextWrapper>
-                        <ContentContainer className="space-content-column">
-                            <div className="space-content-right">
-                                <ContactList>
-                                    {contactInfos.map((contactInfo,index) => {
-                                        return (
-                                            <ContactListItem key={index} info={contactInfo} theme={props.theme}/>
-                                        )
-                                    })}
-                                </ContactList>
-                            </div>
-                        </ContentContainer>
-                    </RightTextWrapper>
-                </Right>
-            </Wrapper>
-        </Container>
-    )
+          </LeftTextWrapper>
+        </Left>
+        <Right>
+          <RightTextWrapper>
+            <ContentContainer className="space-content-column">
+              <div className="space-content-right">
+                <ContactList>
+                  <ContactListItem theme={props.theme} />
+                </ContactList>
+              </div>
+            </ContentContainer>
+          </RightTextWrapper>
+        </Right>
+      </Wrapper>
+    </Container>
+  );
 }
 
 export default withTheme(Contact)
